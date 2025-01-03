@@ -26,6 +26,40 @@
       });
     })();
   </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBar = document.querySelector(".header-bar");
+    const menu = document.querySelector(".main-menu");
+    const menuLinks = document.querySelectorAll(".main-menu a");
+
+    // Toggle the menu visibility when clicking the hamburger
+    toggleBar.addEventListener("click", () => {
+      menu.classList.toggle("menu-open");
+    });
+
+    // Close the menu when a menu link is clicked
+    menuLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (menu.classList.contains("menu-open")) {
+          menu.classList.remove("menu-open");
+          menu.classList.remove("active");
+          toggleBar.classList.remove("active");
+        }
+      });
+    });
+  });
+</script>
+<style>
+  .main-menu {
+  display: none; /* Hide by default */
+  transition: all 0.3s ease-in-out; /* Optional for smooth effect */
+}
+
+.main-menu .menu-open {
+  display: block; /* Show when 'menu-open' class is present */
+}
+</style>
 </head>
 
 <!--<< Body Area >>-->
